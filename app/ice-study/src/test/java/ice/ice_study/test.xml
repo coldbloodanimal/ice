@@ -1,0 +1,177 @@
+<etlRoute>
+  <options/>
+  <route__id>58189a36-43d9-40d7-9aa1-4ad1e3b54560</route__id>
+  <umemberid>d48a6b00-3f99-4222-a449-f158c7ed74b4</umemberid>
+  <cfg__groupid>fd3c75c4-4f82-421f-add5-652acce3d843</cfg__groupid>
+  <route__name>SPD到HDI云南安宁人民医院</route__name>
+  <route__dir>tosrv</route__dir>
+  <since__time>1487066850054</since__time>
+  <src__dbdbname>_default</src__dbdbname>
+  <dest__dbname>_default</dest__dbname>
+  <credate>2016-10-20 15:30:08.0</credate>
+  <cremanid>20</cremanid>
+  <cremanname>超级管理员</cremanname>
+  <etlcfgGroup>
+    <options/>
+    <cfg__groupid>fd3c75c4-4f82-421f-add5-652acce3d843</cfg__groupid>
+    <cfg__group__name>SPD到HDI的导入基础资料</cfg__group__name>
+    <file__format>1</file__format>
+    <credate>2016-08-23 23:00:11.0</credate>
+    <cremanid>20</cremanid>
+    <cremanname>admin</cremanname>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>0dac7e6e-3446-48b3-bc7b-10d8a860c6a3</etlcfgno>
+      <srcquerysql>SELECT
+p.*
+FROM
+spd_purback AS p
+WHERE
+p.auditdate &gt;= :startDate
+and p.auditdate &lt; :endDate
+and p.uorganid = :umemberid</srcquerysql>
+      <desctablename>spd_purback</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>超级管理员</cremanname>
+      <credate>2016-11-12 21:21:35.0</credate>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>290c4abc-1429-42f0-9ef1-f7ef07244699</etlcfgno>
+      <srcquerysql>select rgdtl.* from spd_rg rg,spd_rgdtl rgdtl where rg.rgid = rgdtl.rgid and :startDate &lt;= rg.credate and rg.credate &lt; :endDate</srcquerysql>
+      <desctablename>spd_rgdtl</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>admin</cremanname>
+      <credate>2016-09-08 15:49:24.0</credate>
+      <etl__order>1</etl__order>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>2a278a0e-3790-4506-8e54-5c87a518cb82</etlcfgno>
+      <srcquerysql>select * from pub_goods where :startDate &lt;= editdate and editdate &lt; :endDate</srcquerysql>
+      <desctablename>pub_goods</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>admin</cremanname>
+      <credate>2016-09-08 15:49:24.0</credate>
+      <etl__order>1</etl__order>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>382bbcc3-4ddc-44b2-8e32-9bebff5ca53f</etlcfgno>
+      <srcquerysql>select * from pub_company where :startDate &lt;= editdate and editdate &lt; :endDate</srcquerysql>
+      <desctablename>pub_company</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>admin</cremanname>
+      <credate>2016-09-08 15:49:24.0</credate>
+      <etl__order>1</etl__order>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>7ff47071-e339-40c6-af5b-5abb2eaf2920</etlcfgno>
+      <srcquerysql>select b.* from spd_settlement a,spd_settlementdtl b where a.settlementid=b.settlementid and :startDate &lt;= a.confirmdate and a.confirmdate &lt; :endDate</srcquerysql>
+      <desctablename>spd_settlementdtl</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>admin</cremanname>
+      <credate>2016-09-08 15:49:24.0</credate>
+      <etl__order>1</etl__order>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>9bde22df-0db6-4bd2-8426-d0437bc99078</etlcfgno>
+      <srcquerysql>select * from spd_goodsship where :startDate &lt;= editdate and editdate &lt; :endDate</srcquerysql>
+      <desctablename>spd_goodsship</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>admin</cremanname>
+      <credate>2016-09-08 15:49:24.0</credate>
+      <etl__order>3</etl__order>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>9d0d7efb-bd07-42d1-9b4d-983eaa216d47</etlcfgno>
+      <srcquerysql>SELECT
+pd.*
+FROM
+spd_purback AS p ,
+spd_purbackdtl AS pd
+WHERE
+p.purbackid = pd.purbackid
+and p.auditdate &gt;= :startDate
+and p.auditdate &lt; :endDate
+and p.uorganid = :umemberid</srcquerysql>
+      <desctablename>spd_purbackdtl</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>超级管理员</cremanname>
+      <credate>2016-11-12 21:20:18.0</credate>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>9db3b3ac-28c1-4de2-8ff8-fa57897ea6ad</etlcfgno>
+      <srcquerysql>select * from spd_lot where ( :startDate &lt;= editdate and editdate &lt; :endDate ) or ( :startDate &lt;= inputdate and inputdate &lt; :endDate)
+</srcquerysql>
+      <desctablename>spd_lot</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>超级管理员</cremanname>
+      <credate>2016-12-22 01:25:03.0</credate>
+      <etl__order>10</etl__order>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>aa6f0ac2-094e-4990-82ab-737fddbd2034</etlcfgno>
+      <srcquerysql>select * from spd_goodsunit where :startDate &lt;= editdate and editdate &lt; :endDate</srcquerysql>
+      <desctablename>spd_goodsunit</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>admin</cremanname>
+      <credate>2016-09-08 15:49:24.0</credate>
+      <etl__order>2</etl__order>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>af88059d-c68f-4a92-be9b-73d6183b29d6</etlcfgno>
+      <srcquerysql>select dtl.* from spd_purplandoc doc,spd_purplandtl dtl where dtl.purplandocid = doc.purplandocid and :startDate &lt;= doc.auditdate and doc.auditdate &lt; :endDate</srcquerysql>
+      <desctablename>spd_purplandtl</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>admin</cremanname>
+      <credate>2016-09-08 15:49:24.0</credate>
+      <etl__order>1</etl__order>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>af9860b1-2389-4c3c-bcde-9bd0ad8b0c3e</etlcfgno>
+      <srcquerysql>select * from spd_settlement where :startDate &lt;= confirmdate and confirmdate &lt; :endDate</srcquerysql>
+      <desctablename>spd_settlement</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>admin</cremanname>
+      <credate>2016-09-08 15:49:24.0</credate>
+      <etl__order>2</etl__order>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>d2ef8088-be74-4e18-aa95-54df65835eac</etlcfgno>
+      <srcquerysql>select * from spd_storehouse where :startDate &lt;= editdate and editdate &lt; :endDate</srcquerysql>
+      <desctablename>spd_storehouse</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>admin</cremanname>
+      <credate>2016-09-08 15:49:24.0</credate>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>ea0873aa-2ea7-4777-bc3d-be78be07e259</etlcfgno>
+      <srcquerysql>select * from spd_purplandoc where :startDate &lt;= auditdate and auditdate &lt; :endDate</srcquerysql>
+      <desctablename>spd_purplandoc</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>admin</cremanname>
+      <credate>2016-09-08 15:49:24.0</credate>
+      <etl__order>2</etl__order>
+    </ctlCfg>
+    <ctlCfg>
+      <options/>
+      <etlcfgno>f3e32fa0-1f4b-4162-99b4-d188a98117ef</etlcfgno>
+      <srcquerysql>select * from spd_rg where :startDate &lt;= credate and credate &lt; :endDate</srcquerysql>
+      <desctablename>spd_rg</desctablename>
+      <cremanid>20</cremanid>
+      <cremanname>admin</cremanname>
+      <credate>2016-09-08 15:49:24.0</credate>
+      <etl__order>2</etl__order>
+    </ctlCfg>
+  </etlcfgGroup>
+</etlRoute>
