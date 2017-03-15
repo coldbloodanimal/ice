@@ -13,5 +13,6 @@
 	<module>ice-framework</module>
     <module>ice-ui</module>
 	<module>ice-study</module>
+	<module>ice-springmvc</module>
   </modules>
 </project>

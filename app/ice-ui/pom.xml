@@ -13,7 +13,7 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>4.3.5.RELEASE</spring.version>
+		<org.springframework-version>4.3.5.RELEASE</org.springframework-version>
 		<spring.security.version>3.2.7.RELEASE</spring.security.version>
 		<hibernate.version>3.6.9.Final</hibernate.version>
 		<ehcache.version>2.5.0</ehcache.version>
@@ -24,7 +24,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
+			<version>${org.springframework-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -32,8 +32,27 @@
 			<version>3.1.0</version>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<finalName>ice-ui</finalName>
-	</build>
+<!--   <build> -->
+<!--     <plugins> -->
+<!--       <plugin> -->
+<!--         <groupId>org.apache.maven.plugins</groupId> -->
+<!--         <artifactId>maven-war-plugin</artifactId> -->
+<!--         <version>3.0.0</version> -->
+<!--         <configuration> -->
+<!--           <overlays> -->
+<!--             <overlay> -->
+<!--               <groupId>ice</groupId> -->
+<!--               <artifactId>ice-ui</artifactId> -->
+<!--               <includes> -->
+<!--                 <include>web.xml</include> -->
+<!--               </includes> -->
+<!--             </overlay> -->
+<!--             <overlay> -->
+<!--               empty groupId/artifactId represents the current build -->
+<!--             </overlay> -->
+<!--           </overlays> -->
+<!--         </configuration> -->
+<!--       </plugin> -->
+<!--     </plugins> -->
+<!--   </build> -->
 </project>
